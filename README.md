@@ -11,10 +11,6 @@ This is a Flask-based voting application that allows users to create polls and v
 
 1. Clone the repository:
 
-```
-git clone https://github.com/yourusername/voting-application.git
-cd voting-application
-```
 
 2. Create a virtual environment:
 
