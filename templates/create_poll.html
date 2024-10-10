@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Create Poll</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Options</label>
+            <div id="options">
+                <input type="text" class="form-control mb-2" name="options" required>
+                <input type="text" class="form-control mb-2" name="options" required>
+            </div>
+            <button type="button" class="btn btn-secondary" id="add-option">Add Option</button>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Poll</button>
+    </form>
+
+    <script>
+        document.getElementById('add-option').addEventListener('click', function() {
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.name = 'options';
+            input.className = 'form-control mb-2';
+            input.required = true;
+            document.getElementById('options').appendChild(input);
+        });
+    </script>
+{% endblock %}

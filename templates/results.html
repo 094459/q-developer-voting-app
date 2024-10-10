@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Results: {{ poll.title }}</h1>
+    <p>{{ poll.description }}</p>
+    <h2>Total Votes: {{ total_votes }}</h2>
+    <ul class="list-group">
+        {% for option, count in results %}
+            <li class="list-group-item">
+                {{ option }}: {{ count }} vote(s) ({{ (count / total_votes * 100)|round(2) }}%)
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: {{ (count / total_votes * 100)|round(2) }}%" aria-valuenow="{{ count }}" aria-valuemin="0" aria-valuemax="{{ total_votes }}"></div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('vote', poll_id=poll.id) }}" class="btn btn-primary mt-3">Vote Again</a>
+{% endblock %}
